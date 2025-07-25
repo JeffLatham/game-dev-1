@@ -7,12 +7,10 @@ import { CartesianCoord2D, PolarCoord2D } from './Utils';
 
 /** The props for the Circle component */
 export interface CircleProps {
-  /** Optional class names */
-  className: string;
-  /** The coordinates of the center */
-  center?: PolarCoord2D,
   /** The radius */
   radius: number;
+  /** The coordinates of the center */
+  center?: PolarCoord2D,
   /** The starting rotation angle */
   startAngle?: number;
   /** The angular velocity [degrees/second] */
@@ -23,6 +21,8 @@ export interface CircleProps {
   frequency?: number;
   /** Callback fired at the given frequency */
   onUpdate?: (point: CartesianCoord2D) => void;
+  /** Optional class names */
+  className?: string;
 }
 
 export const Circle: FC<PropsWithChildren<CircleProps>> = ({
