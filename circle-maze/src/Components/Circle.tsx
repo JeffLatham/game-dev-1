@@ -21,6 +21,8 @@ export interface CircleProps {
   frequency?: number;
   /** Callback fired at the given frequency */
   onUpdate?: (point: CartesianCoord2D) => void;
+  /** The radius of the draw point */
+  drawRadius?: number;
   /** Optional class names */
   className?: string;
 }
@@ -35,6 +37,7 @@ export const Circle: FC<PropsWithChildren<CircleProps>> = ({
   enableRoll = false,
   frequency = 0,
   onUpdate,
+  drawRadius = radius,
 }) => {
   const pointRef = createRef<HTMLDivElement>();
 
@@ -83,7 +86,9 @@ export const Circle: FC<PropsWithChildren<CircleProps>> = ({
         }}
       >
         <div className="absolute flex border-y border-black w-1/2 top-1/2 right-0" >
-          <div ref={pointRef} className="ml-auto" />
+          <div ref={pointRef} className="relative" style={{ 'marginLeft': drawRadius }}>
+            <div className="absolute top-0 right-0 w-2 h-2 rounded-full bg-blue-500 translate-x-1/2 -translate-y-1/2" />
+          </div>
         </div>
         {children}
       </div>

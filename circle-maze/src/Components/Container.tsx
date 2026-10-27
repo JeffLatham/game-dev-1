@@ -55,6 +55,7 @@ export const Container: FC = () => {
             enableRoll={true}
             frequency={drawFrequency}
             onUpdate={addPoint}
+            drawRadius={r2 * 1}
           >
             <Circle
               radius={r3}
